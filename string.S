@@ -9,6 +9,24 @@
 
 		;		Your code here
 
+start
+		ADR		r0, chars0
+		ADR		r1, string
+		ADR		r2, count
+		LDR		r2, [r2]
+loop
+		
+		LDR		r3, [r0], #4
+		STR		r3, [r1], #4
+		SUBS		r2, r2, #1
+		CMP		r2, #0
+		BGT		loop
+		
+		MOV		r3, #0
+		STR		r3, [r0]
+		END
+		
+
 chars0	DCD		'T', 'h', 'e', ' ', '2', '0', '1', '8', ' ', 'T', 'u'
 chars1	DCD		'r', 'i', 'n', 'g', ' ', 'A', 'w', 'a', 'r', 'd', ' '
 chars2	DCD		'w', 'a', 's', ' ', 'a', 'w', 'a', 'r', 'd', 'e', 'd'
